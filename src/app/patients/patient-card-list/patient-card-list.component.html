@@ -1,0 +1,48 @@
+<div class="patient-card-list-toolbar">
+    <div class="page-title">
+        <div class="row">
+            <div class="col">
+                <h2>Dashboard Overview</h2>
+            </div>
+            <div class="col text-right">
+                <button class="btn btn-success" (click)="processAllReports()">Process All Reports</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <input [(ngModel)]="query" type="text" class="form-control" placeholder="Search Patients" (keyup)="0" name="searchPatients">
+                </div>
+                <!-- <div class="form-group">
+                    <select class="custom-select">
+                        <option value="1" selected>Last Name</option>
+                        <option value="2">First Name</option>
+                        <option value="3">Member ID</option>
+                    </select>
+                </div> -->
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" [(ngModel)]="noReportFilterModel" name="noReportFilter" btnCheckbox> Include Missing Patient Reports
+                    </label>
+                </div>
+                <!--<div class="form-group">
+                    <div class="btn-group">
+                        <label class="btn btn-primary" [(ngModel)]="filterModel" btnRadio="All" name="all">All Reports</label>
+                        <label class="btn btn-primary" [(ngModel)]="filterModel" btnRadio="Yes" name="hasReport">Has Report</label>
+                        <label class="btn btn-primary" [(ngModel)]="filterModel" btnRadio="No" name="noReport">No Report</label>
+                    </div>
+                </div>-->
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <!--<div class="col-3" *ngFor="let patient of patients | searchPatients: 'firstName':query | hasReport: noReportFilterModel">
+        <app-patient-card [patient]="patient"></app-patient-card>
+    </div>-->
+    <div class="col">
+        <app-patient-table-list [patients]="patients | searchPatients: 'PatientFirstName':query | hasReport: noReportFilterModel" [loadingPatients]="loadingPatients"></app-patient-table-list>
+    </div>
+</div>

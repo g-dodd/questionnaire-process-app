@@ -1,0 +1,21 @@
+@import "../../../styles.scss";
+
+span {
+    &.report-indicator {
+        &.has-report {
+            i {
+                color: #009e0f;
+            }
+        }
+        &.no-report {
+            i {
+                color: #ff0000;
+            }
+        }
+
+    }
+    &.log-indicator {
+        color: $blue;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,21 @@
+<div class="card patient-card" [ngClass]="patient.status">
+    <div class="card-header">
+        {{ getStatusName(patient.status) }}
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">{{patient.firstName}} {{patient.lastName}}</h4>
+        <ul>
+            <li><strong>DOB:</strong> {{patient.dateOfBirth}}</li>
+            <li><strong>Member ID:</strong> {{patient.memberId}}</li>
+            <li><strong>Phone Number:</strong> {{patient.phone}}</li>
+        </ul>
+    </div>
+    <div class="card-footer">
+        <span class="log-indicator" (click)="openReportLog()">
+            <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+        </span>
+        <span class="report-indicator" [ngClass]="{'no-report': !patient.hasReport, 'has-report': patient.hasReport}">
+            <i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i>
+        </span>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+@import "../../../styles";
+
+.section-box {
+    display: flex;
+    border: 1px solid #111;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    background-color: #fff;
+    color: #111;
+}
+
+.section-box:hover {
+    color: #fff;
+    background-color: darken($brand-primary, 10%);
+    border: 1px solid darken($brand-primary, 10%);
+}
+
+.section-box.active {
+    background-color: darken($brand-primary, 10%);
+    color: #fff;
+    border: 1px solid darken($brand-primary, 10%);
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+.table tr.disabled {
+    background-color: #eee;
+}
+
+.rule-actions {
+    font-size: 2rem;
+}
+
+.rule-actions .rule-action-disable.disabled {
+    color: #2b78e4;
+}
+
+.rule-actions .rule-action-delete {
+    color: #cf2a27;
+}

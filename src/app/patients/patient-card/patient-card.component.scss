@@ -1,0 +1,36 @@
+.patient-card {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.patient-card .card-header {
+    color: #eee;
+    background-color: #222;
+    text-align: center;
+}
+
+.patient-card .card-body ul {
+    padding: 0;
+    list-style: none;
+}
+
+.patient-card.pending .card-body {
+    background-color: #ffff00;
+}
+
+.patient-card.no-report .card-body {
+    background-color: #ea9999;
+}
+
+.patient-card .card-footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.patient-card .card-footer span.report-indicator.has-report i {
+    color: #009e0f;
+}
+
+.patient-card .card-footer span.report-indicator.no-report i {
+    color: #ff0000;
+}

@@ -1,0 +1,42 @@
+<p class="loading-indicator" *ngIf="loadingPatients"><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Loading Patients</p>
+<table class="table" *ngIf="!loadingPatients">
+    <thead>
+        <tr>
+            <th></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>DOB</th>
+            <th>Member ID</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr 
+            *ngFor="let patient of patients" 
+            [ngClass]="{
+                'table-warning': patient.Status === 2,
+                'table-primary': patient.Status === 3,
+                'table-success': patient.Status === 4
+            }"
+        >
+            <td>
+                <span class="report-indicator" [ngClass]="{'no-report': patient.Status === 0, 'has-report': patient.Status > 0}">
+                    <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                </span>
+            </td>
+            <td>{{ patient.PatientFirstName }}</td>
+            <td>{{ patient.PatientLastName }}</td>
+            <td>{{ patient.PatientDateOfBirth | convertDate }}</td>
+            <td>{{ patient.MemberID }}</td>
+            <td>{{ patient.PhoneNumber }}</td>
+            <td>{{ patient.Status | statusToText }}</td>
+            <td>
+                <span class="log-indicator" (click)="openReportLog(patient)" *ngIf="patient.Status > 0">
+                    Open Log <i class="fa fa-external-link" aria-hidden="true"></i>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+</table>

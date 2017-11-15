@@ -1,0 +1,45 @@
+@import "../../styles.scss";
+
+.processing-complete-container {
+    margin-bottom: 1rem;
+}
+
+.processing-complete-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.processing-complete-container ul li {
+    display: flex;
+    padding: 0.25rem;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.processing-complete-container ul li span.count {
+    color: #009e0f;
+}
+
+.processing-complete-container a {
+    color: #2b78e4;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+accordion {
+    p {
+        color: #111;
+    }
+}
+
+.select-option-container {
+    padding: 0.5rem;
+    text-align: right;
+    span {
+        display: inline-block;
+        padding-left: 0.5rem;
+        color: $brand-primary;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}

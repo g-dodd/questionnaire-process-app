@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col">
+        <div class="page-title">
+            <div class="row">
+                <div class="col">
+                    <h2>Rules</h2>
+                </div>
+                <div class="col text-right">
+                    <!--<button class="btn btn-success" (click)="goToEditRules()" [disabled]="selectedQuestion === null">Edit Rules</button>-->
+                    <!--<button type="button" class="btn btn-primary" [disabled]="selectedQuestion.id === null" (click)="goToEditRules()">Edit Rules</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <p class="loading-indicator" *ngIf="loadingSections"><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Loading Sections and Questions</p>
+    </div>
+    <div class="col-3" *ngIf="!loadingSections">
+        <accordion>
+            <accordion-group *ngFor="let section of sections" (click)="selectSection(section)" [panelClass]="'accordion-style'">
+                <div accordion-heading>Section - {{ section.sectionName }} ({{ updateSectionRuleCount(section) }})</div>
+                <!-- Revamping the selection process to send a reference to the question to the rules pane-->
+                <!--<div class="section-box" *ngFor="let question of section.questions" (click)="selectQuestion(section.id, question.id)" [ngClass]="{'active': isQuestionSelected(section.id, question.id)}">
+                    <span>{{ question.type }}</span>
+                    <span>
+                        <i class="fa fa-chevron-right"></i>
+                    </span>
+                </div>-->
+                <div class="section-box" *ngFor="let question of section.questions" (click)="selectQuestion2(question); goToEditRules(section.id, question.id)" [ngClass]="{'active': isQuestionSelected(question)}">
+                    <span>{{ question.questionName }} ({{ updateQuestionRuleCount(question) }})</span>
+                    <span>
+                        <i class="fa fa-chevron-right"></i>
+                    </span>
+                </div>
+            </accordion-group>
+        </accordion>
+    </div>
+    <div class="col-9">
+        <router-outlet></router-outlet>
+        <!--<p *ngIf="selectedQuestion.id === null" class="text-center">Please select a section from the list.</p>
+        <div class="rules-pane" *ngIf="selectedQuestion.id !== null">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Answer</th>
+                        <th>Rules</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Yes</td>
+                        <td>{{ selectedQuestion.rules.yes.length ? selectedQuestion.rules.yes : '- No Rules - ' }}</td>
+                    </tr>
+                    <tr>
+                        <td>No</td>
+                        <td>{{ selectedQuestion.rules.no.length ? selectedQuestion.rules.no : '- No Rules - ' }}</td>
+                    </tr>
+                    <tr>
+                        <td>Referred</td>
+                        <td>{{ selectedQuestion.rules.referred.length ? selectedQuestion.rules.referred : '- No Rules - ' }}</td>
+                    </tr>
+                    <tr>
+                        <td>Not Assessed</td>
+                        <td>{{ selectedQuestion.rules.notAssessed.length ? selectedQuestion.rules.notAssessed : '- No Rules - ' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>-->
+
+    </div>
+</div>

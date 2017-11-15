@@ -1,0 +1,43 @@
+        <div class="row">
+            <div class="col">
+                <header>
+                    <h2><strong>Question: </strong>{{ selectedQuestion.questionName }}</h2>
+                    <select class="custom-select" [(ngModel)]="selectedPatient" (change)="onSelectedPatientChange($event)">
+                        <option *ngFor="let patient of patients | hasReport: false" [ngValue]="patient">{{ patient?.PatientLastName + ', ' + patient?.PatientFirstName }}</option>
+                    </select>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="rule-container">
+                    <p>Rules For 'Yes' Answer</p>
+                    <p-chips [(ngModel)]="selectedQuestionRules.yes" [addOnTab]="true" (drop)="dropped($event, 'yes')"></p-chips>
+                </div>
+                <div class="rule-container">
+                    <p>Rules For 'No' Answer</p>
+                    <p-chips [(ngModel)]="selectedQuestionRules.no" [addOnTab]="true" (drop)="dropped($event, 'no')"></p-chips>
+                </div>
+                <div class="rule-container">
+                    <p>Rules For 'Referred' Answer</p>
+                    <p-chips [(ngModel)]="selectedQuestionRules.referred" [addOnTab]="true" (drop)="dropped($event, 'referred')"></p-chips>
+                </div>
+                <div class="rule-container">
+                    <p>Rules For 'Not Assessed' Answer</p>
+                    <p-chips [(ngModel)]="selectedQuestionRules.notAssessed" [addOnTab]="true" (drop)="dropped($event, 'not-assessed')"></p-chips>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="edit-rules-footer">
+                            <!--<button type="button" class="btn btn-secondary btn-lg" (click)="cancel()">Cancel</button>-->
+                            <button type="button" class="btn btn-success btn-lg btn-block" (click)="saveRules()">Save Rules</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="report-container">
+                    {{ selectedPatientReport }}
+                </div>
+            </div>
+        </div>

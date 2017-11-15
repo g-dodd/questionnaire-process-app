@@ -1,0 +1,99 @@
+<div class="patient-process-card">
+    <div class="main">
+        <div class="has-report-container" [ngClass]="{'has-report': patient.Status > 0, 'no-report': patient.Status === 0}">
+            <i class="fa fa-file-text-o fa-2x"></i>
+        </div>
+        <div class="details-container">
+            <span><strong>Patient Name: </strong>{{patient.PatientFirstName}} {{patient.PatientLastName}}</span>
+            <span><strong>DOB: </strong>{{patient.PatientDateOfBirth | convertDate}}</span>
+            <span><strong>Member ID: </strong>{{patient.MemberID}}</span>
+            <span><strong>Phone: </strong>{{patient.PhoneNumber}}</span>
+        </div>
+        <div class="selection-container">
+            <div class="form-check" *ngIf="!processing && patient.Status > 0">
+                <input class="form-check-input" type="checkbox" [checked]="patientSelected" (change)="togglePatientSelection()" btnCheckbox />
+            </div>
+            <span *ngIf="processing">
+                <i class="fa fa-times fa-2x" (click)="removeFromProcessing(patient)"></i>
+            </span>
+        </div>
+    </div>
+    <footer>
+        <div class="rules-container" *ngIf="processing">
+            <div class="rules-minimized">
+                <span>Rules To Apply: 9</span>
+                <a (click)="toggleExpandedRulesSection()">{{ rulesSectionExpanded ? 'Hide Details' : 'View Details' }}</a>
+            </div>
+            <div class="rules-maximized" [ngClass]="{'active': rulesSectionExpanded}">
+                <div class="rule-section">
+                    <div class="section-heading">
+                        <h6><i class="fa" [ngClass]="{'fa-plus': !isRulesListExpanded(1), 'fa-minus': isRulesListExpanded(1)}" (click)="toggleExpandedRulesList(1)"></i> Early Detection</h6>
+                        <span>(7)</span>
+                    </div>
+                    <ul [ngClass]="{'active': isRulesListExpanded(1)}">
+                        <li>
+                            <span>Cognitive Function</span>
+                            <span>3</span>
+                        </li>
+                        <li>
+                            <span>Major Depression</span>
+                            <span>2</span>
+                        </li>
+                        <li>
+                            <span>Diabetes Mellitus</span>
+                            <span>2</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="rule-section">
+                    <div class="section-heading">
+                        <h6><i class="fa" [ngClass]="{'fa-plus': !isRulesListExpanded(2), 'fa-minus': isRulesListExpanded(2)}" (click)="toggleExpandedRulesList(2)"></i> Preventive Medicine Screening</h6>
+                        <span>(2)</span>
+                    </div>
+                    <ul [ngClass]="{'active': isRulesListExpanded(2)}">
+                        <li>
+                            <span>Colorectal Cancer Screening</span>
+                            <span>1</span>
+                        </li>
+                        <li>
+                            <span>Body Mass Index</span>
+                            <span>1</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="questions-container">
+            <div class="questions-minimized">
+                <span>Questions Answered: 0 of 13</span>
+                <a (click)="toggleExpandedQuestionsSection()">{{ questionsSectionExpanded ? 'Hide Details' : 'View Details' }}</a>
+            </div>
+            <div class="questions-maximized" [ngClass]="{'active': questionsSectionExpanded}">
+                <div class="questions-section">
+                    <ul>
+                        <li>
+                            <span>Cognitive Function</span>
+                            <a [routerLink]="['../../dashboard/rules/edit-rules/2/1']">Edit Rules</a>
+                        </li>
+                        <li>
+                            <span>Major Depression</span>
+                            <a [routerLink]="['../../dashboard/rules/edit-rules/2/2']">Edit Rules</a>
+                        </li>
+                        <li>
+                            <span>Diabetes Mellitus</span>
+                            <a [routerLink]="['../../dashboard/rules/edit-rules/2/5']">Edit Rules</a>
+                        </li>
+                        <li>
+                            <span>Colorectal Cancer Screening</span>
+                            <a [routerLink]="['../../dashboard/rules/edit-rules/3/1']">Edit Rules</a>
+                        </li>
+                        <li>
+                            <span>Body Mass Index</span>
+                            <a [routerLink]="['../../dashboard/rules/edit-rules/3/2']">Edit Rules</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>

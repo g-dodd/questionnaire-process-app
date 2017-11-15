@@ -1,0 +1,126 @@
+.patient-process-card {
+    color: #000;
+    border: 1px solid #000;
+    margin: 1rem 0;
+
+}
+
+.patient-process-card .main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.patient-process-card .has-report-container, .patient-process-card .details-container, .patient-process-card .selection-container {
+    padding: 1rem;
+}
+
+.patient-process-card .has-report-container, .patient-process-card .selection-container {
+    flex: 1 1 auto;
+}
+
+.patient-process-card .details-container {
+    flex: 2 1 auto;
+}
+
+.patient-process-card .has-report-container {
+    text-align: center;
+}
+
+.patient-process-card .has-report-container.has-report {
+    color: #009e0f;
+}
+
+.patient-process-card .has-report-container.no-report {
+    color: #ff0000;
+}
+
+.patient-process-card .selection-container {
+    text-align: right;
+}
+
+.patient-process-card .selection-container span {
+    color: #ff0000;
+}
+
+
+.patient-process-card .details-container span {
+    display: block;
+}
+
+.patient-process-card footer .rules-container, .patient-process-card footer .questions-container {
+    color: #fff;
+    padding: 0.25rem;
+}
+
+.patient-process-card footer .rules-container .rules-minimized, .patient-process-card footer .questions-container .questions-minimized {
+    display: flex;
+    justify-content: space-between;
+}
+
+.patient-process-card footer .rules-container a, .patient-process-card footer .questions-container a {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.patient-process-card footer .rules-container {
+    background-color: #2b78e4;
+}
+
+.patient-process-card footer .questions-container {
+    background-color: #cf2a27;
+}
+
+.patient-process-card footer .rules-container .rules-maximized, .patient-process-card footer .questions-container .questions-maximized {
+    display: none;
+}
+
+.patient-process-card footer .rules-container .rules-maximized.active, .patient-process-card footer .questions-container .questions-maximized.active {
+    display: block;
+}
+
+.rules-maximized {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed #fff;
+    .rule-section {
+        padding: 0.5rem;
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+        }
+        ul {
+            display:none;
+            list-style: none;
+            padding-left: 20px;
+            &.active {
+                display: block;
+            }
+            li {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}
+
+.questions-maximized {
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+    border-top: 1px dashed #fff;
+    ul {
+        list-style: none;
+        padding-left: 20px;
+        li {
+            display: flex;
+            justify-content: space-between;
+            a {
+                text-decoration: none !important;
+                &:hover {
+                    text-decoration: underline !important;
+                }
+            }
+        }
+    }
+}

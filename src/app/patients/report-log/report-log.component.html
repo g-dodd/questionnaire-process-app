@@ -1,0 +1,36 @@
+<div class="modal-header">
+    <h5 class="modal-title pull-left">Report Log for {{ patientName }}</h5>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="close()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <embed src="assets/OPTUM_ACEDO_SALLY_19421225.pdf" width="100%" height="100%" />
+            </div>
+            <div class="col">
+                <p><strong>Process ran: </strong>09/07/2017</p>
+                <div class="patient-log-container">
+                    <h3>Early Detection</h3>
+                    <h5>3 Rules Applied</h5>
+                    <ul>
+                        <li>cognitive function</li>
+                        <li>depression</li>
+                        <li>peripheral</li>
+                    </ul>
+                    <h5>3 Questions Answered</h5>
+                    <ul>
+                        <li>Cognitive Function - Yes</li>
+                        <li>Major Depression - No</li>
+                        <li>Peripheral Neuropathy - No</li>
+                    </ul>
+
+                    <p><strong>Questions remain:</strong> 8 of 11</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

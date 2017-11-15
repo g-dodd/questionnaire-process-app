@@ -1,0 +1,59 @@
+@import '_variables.scss';
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+.btn-primary {
+    color: #fff;
+    &:hover {
+        color: #fff;
+    }
+}
+
+.page-title {
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.process-header {
+    border-bottom: 1px solid #000;
+    margin-bottom: 2rem;
+}
+
+.patient-process-search {
+    margin-bottom: 1rem;
+}
+
+.patient-process-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.patient-process-actions .filters-container a {
+    margin-right: 0.5rem;
+}
+
+.patient-log-container h2 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.patient-log-container h3 {
+    text-decoration: underline;
+    margin-bottom: 0.5rem;
+}
+
+.panel.accordion-style {
+    background-color: $brand-primary;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    .panel-body {
+        background-color: #fff;
+    }
+}
+
+.loading-indicator {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}

@@ -1,0 +1,96 @@
+<div class="modal-header">
+    <h5 class="modal-title">Add A New Rule</h5>
+</div>
+<div class="modal-body">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-4">
+                <form (ngSubmit)="onSubmit(addRuleForm)" #addRuleForm="ngForm">
+                    <div class="form-group">
+                        <label>Section</label>
+                        <select class="custom-select" [ngModel]="selectedSection" (ngModelChange)="onSectionChange($event)" name="sectionName" required>
+                            <option selected [value]="{}">- Select A Section -</option>
+                            <option [ngValue]="section" *ngFor="let section of sections">{{ section.section}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Question</label>
+                        <select class="custom-select" [ngModel]="selectedQuestion" name="questionName" required>
+                            <option [ngValue]="question.type" *ngFor="let question of selectedSection.questions">{{ question.type }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ruleInput">Rule</label>
+                        <input name="ruleName" type="text" class="form-control" id="ruleInput" placeholder="Enter rule" [ngModel]="selectedRule" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Answer</label>
+                        <select class="custom-select" [(ngModel)]="selectedAnswer" name="answerName" required>
+                            <option [value]="answer" *ngFor="let answer of answers">{{ answer | convertRuleAnswer}}</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-default" (click)="onCancel()">Cancel</button>
+                    <button type="submit" class="btn btn-success" [disabled]="!addRuleForm.form.valid">Add Rule</button>
+                </form>
+            </div>
+            <div class="col-8">
+                <div class="report-container">
+                    Active Problems
+                    ========================
+                    1. Abnormal electrocardiogram (R94.31)
+                    2. Acute ischemic stroke (I63.9)
+                    3. Agitation (R45.1)
+                    4. Alzheimer's disease (G30.9)
+                    5. Benign essential hypertension (I10)
+                    6. Carotid artery disease (I77.9)
+                    7. Cellulitis of heel, left (L03.116)
+                    8. Chronic obstructive pulmonary disease (J44.9)
+                    9. Dyslipidemia (E78.5)
+                    10. Heel lesion (L98.9)
+                    11. Hypertensive renovascular disease (I12.9,N18.9)
+                    12. Impacted cerumen, unspecified ear (H61.20)
+                    13. Low blood pressure reading (R03.1)
+                    14. Memory loss (R41.3)
+                    15. Mixed hyperlipidemia (E78.2)
+                    16. Open wound of left foot (S91.302A)
+                    17. Pre-operative cardiovascular examination (Z01.810)
+                    18. Renal failure (N19)
+                    19. Screening for tuberculosis (Z11.1)
+                    20. Stroke syndrome (I63.9)
+                    21. Swelling, mass, or lump on face (R22.0)
+                    22. Tachycardia (R00.0)
+                    23. Thyroid nodule (E04.1)
+                    24. Tobacco use (Z72.0)
+                    25. Tremor (R25.1)
+                    26. Visit for pre-operative examination (Z01.818)
+                    27. Wheezing (R06.2)
+
+                    Current Meds
+                    ========================
+                    1. AmLODIPine Besylate 5 MG Oral Tablet; TAKE 1 TABLET DAILY AS DIRECTED; Therapy: (Recorded:22Feb2017) to Recorded
+                    2. Aspirin 81 MG TABS; TAKE 1 TABLET DAILY; Therapy: (Recorded:22Feb2017) to Recorded
+                    3. Atorvastatin Calcium 10 MG Oral Tablet; TAKE ONE TABLET BY MOUTH AT BEDTIME; Therapy: 11Nov2013 to (Evaluate:14Mar2016) Requested for: 22Feb2017 Recorded
+                    4. Donepezil HCl - 10 MG Oral Tablet; TAKE 1 TABLET DAILY WITH FOOD; Therapy: 31Dec2013 to (Evaluate:25Jun2016) Requested for: 22Feb2017 Recorded
+                    5. Lisinopril 40 MG Oral Tablet; TAKE 1/2 (20 TABLET DAILY; Therapy: 28Mar2013 to (Evaluate:14Jun2016) Requested for: 22Feb2017 Recorded
+                    6. Memantine HCl - 10 MG Oral Tablet; TAKE 1 TABLET Bedtime; Therapy: 03May2017 to Recorded
+                    7. Memantine HCl - 10 MG Oral Tablet; TAKE ONE TABLET BY MOUTH EVERY NIGHT AT BEDTIME; Therapy: 29Jun2015 to (Evaluate:29Oct2017) Requested for: 02May2017; Last Rx:02May2017; Status: ACTIVE - Retrospective Authorization Ordered
+                    8. ProAir HFA 108 (90 Base) MCG/ACT Inhalation Aerosol Solution; INHALE 1 TO 2 PUFFS BY MOUTH EVERY 6 HOURS AS NEEDED; Therapy: 20May2013 to (Evaluate:15Jul2016) Recorded
+                    9. QUEtiapine Fumarate 25 MG Oral Tablet; TAKE 1 TABLET AT BEDTIME; Therapy: 22Feb2017 to (Evaluate:01Aug2017); Last Rx:03May2017 Ordered
+                    10. Spiriva Respimat 2.5 MCG/ACT Inhalation Aerosol Solution; INHALE 2 PUFFS ONCE DAILY;
+                    Therapy: 06Apr2016 to (Last Rx:06Apr2016); Status: ACTIVE - Retrospective
+                    Authorization
+                    Ordered
+                    Message
+
+                    PCMH
+                    ========================
+                    Patient Communication: ACN Navigator phone called patient to schedule an AWV. Per Daughter Stephanie stated she will call back to schedule at another time. IR ACN
+
+                    Signatures
+                    ========================
+                    Electronically signed by : Isaura Reyes, ; Admin Assistant Jun 7 2017 1:22PM UMST (Author)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
