@@ -43,6 +43,6 @@
         <app-patient-card [patient]="patient"></app-patient-card>
     </div>-->
     <div class="col">
-        <app-patient-table-list [patients]="patients | searchPatients: 'PatientFirstName':query | hasReport: noReportFilterModel" [loadingPatients]="loadingPatients"></app-patient-table-list>
+        <app-patient-table-list [patients]="patients | searchPatients: 'patientFirstName':query | hasReport: noReportFilterModel" [loadingPatients]="loadingPatients"></app-patient-table-list>
     </div>
 </div>

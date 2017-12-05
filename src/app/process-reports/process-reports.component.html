@@ -76,14 +76,14 @@
                             <span (click)="unselectAll('loaded')">Unselect All</span>
                             <span (click)="selectAll('loaded')">Select All</span>
                         </div>
-                        <app-patient-process-card *ngFor="let patient of patients | searchPatients: 'PatientFirstName':query | orderBy: 'PatientFirstName' | filterStatus: 1 | hasReport: noReportFilterModel" [patient]="patient" [processing]="false" (onPatientToggle)="togglePatientSelection($event)" (onPatientSelection)="addPatientToSelection($event)" (onPatientUnselection)="removePatientFromSelection($event)" [type]="'loaded'"></app-patient-process-card>
+                        <app-patient-process-card *ngFor="let patient of patients | searchPatients: 'patientFirstName':query | orderBy: 'patientFirstName' | filterStatus: 1 | hasReport: noReportFilterModel" [patient]="patient" [processing]="false" (onPatientToggle)="togglePatientSelection($event)" (onPatientSelection)="addPatientToSelection($event)" (onPatientUnselection)="removePatientFromSelection($event)" [type]="'loaded'"></app-patient-process-card>
                     </accordion-group>
                     <accordion-group heading="Pending" [panelClass]="'accordion-style'">
                         <div class="select-option-container">
                             <span (click)="unselectAll('pending')">Unselect All</span>
                             <span (click)="selectAll('pending')">Select All</span>
                         </div>
-                        <app-patient-process-card *ngFor="let patient of patients | searchPatients: 'PatientFirstName':query | orderBy: 'PatientFirstName' | filterStatus: 2 | hasReport: noReportFilterModel" [patient]="patient" [processing]="false" (onPatientToggle)="togglePatientSelection($event)" (onPatientSelection)="addPatientToSelection($event)" (onPatientUnselection)="removePatientFromSelection($event)" [type]="'pending'"></app-patient-process-card>
+                        <app-patient-process-card *ngFor="let patient of patients | searchPatients: 'patientFirstName':query | orderBy: 'patientFirstName' | filterStatus: 2 | hasReport: noReportFilterModel" [patient]="patient" [processing]="false" (onPatientToggle)="togglePatientSelection($event)" (onPatientSelection)="addPatientToSelection($event)" (onPatientUnselection)="removePatientFromSelection($event)" [type]="'pending'"></app-patient-process-card>
                     </accordion-group>
                     <accordion-group heading="Completed" [panelClass]="'accordion-style'">
                     </accordion-group>

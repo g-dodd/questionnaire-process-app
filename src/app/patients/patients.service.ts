@@ -32,8 +32,8 @@ export class PatientsService {
     getPatientReport(patient: Patient): Observable<any> {
         let params: URLSearchParams = new URLSearchParams();
 
-        params.set('firstName', patient.PatientFirstName);
-        params.set('lastName', patient.PatientLastName);
+        params.set('firstName', patient.patientFirstName);
+        params.set('lastName', patient.patientLastName);
 
         return this.http.get(this.reportsUrl, { search: params })
             .map((res: Response) => res.json())

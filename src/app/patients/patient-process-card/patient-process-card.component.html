@@ -1,16 +1,16 @@
 <div class="patient-process-card">
     <div class="main">
-        <div class="has-report-container" [ngClass]="{'has-report': patient.Status > 0, 'no-report': patient.Status === 0}">
+        <div class="has-report-container" [ngClass]="{'has-report': patient.status > 0, 'no-report': patient.status === 0}">
             <i class="fa fa-file-text-o fa-2x"></i>
         </div>
         <div class="details-container">
-            <span><strong>Patient Name: </strong>{{patient.PatientFirstName}} {{patient.PatientLastName}}</span>
-            <span><strong>DOB: </strong>{{patient.PatientDateOfBirth | convertDate}}</span>
-            <span><strong>Member ID: </strong>{{patient.MemberID}}</span>
-            <span><strong>Phone: </strong>{{patient.PhoneNumber}}</span>
+            <span><strong>Patient Name: </strong>{{patient.patientFirstName}} {{patient.patientLastName}}</span>
+            <span><strong>DOB: </strong>{{patient.patientDateOfBirth | convertDate}}</span>
+            <span><strong>Member ID: </strong>{{patient.memberId}}</span>
+            <span><strong>Phone: </strong>{{patient.phoneNumber}}</span>
         </div>
         <div class="selection-container">
-            <div class="form-check" *ngIf="!processing && patient.Status > 0">
+            <div class="form-check" *ngIf="!processing && patient.status > 0">
                 <input class="form-check-input" type="checkbox" [checked]="patientSelected" (change)="togglePatientSelection()" btnCheckbox />
             </div>
             <span *ngIf="processing">

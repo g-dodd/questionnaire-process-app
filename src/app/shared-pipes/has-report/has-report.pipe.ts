@@ -11,7 +11,7 @@ export class HasReportPipe implements PipeTransform {
             filteredPatients = patients;
         } else {
             if (filter !== null) {
-                filteredPatients = patients.filter(patient => patient.Status > 0);
+                filteredPatients = patients.filter(patient => patient.status > 0);
             }
         }
 

@@ -5,5 +5,5 @@
 
 export const environment = {
     production: false,
-    apiUrl: ''
+    apiUrl: 'http://api.questionnaire-processor.app/'
 };

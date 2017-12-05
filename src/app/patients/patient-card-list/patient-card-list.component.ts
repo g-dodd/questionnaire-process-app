@@ -16,7 +16,7 @@ import { PatientsService } from '../patients.service';
 })
 export class PatientCardListComponent implements OnInit, OnDestroy {
     patients: Patient[];
-    patientsSubsciption: Subscription;
+    patientsSubscription: Subscription;
     query: string;
     noReportFilterModel: boolean = false;
     patientsLodash: string[] = [];
@@ -35,10 +35,9 @@ export class PatientCardListComponent implements OnInit, OnDestroy {
     }
 
     getPatients(): void {
-        this.patientsSubsciption = this.patientService.patients$.subscribe(
+        this.patientsSubscription = this.patientService.patients$.subscribe(
             response => {
                 this.patients = response;
-
                 if (this.patients && this.patients !== null) {
                     this.loadingPatients = false;
                 }
@@ -61,6 +60,6 @@ export class PatientCardListComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.patientsSubsciption.unsubscribe();
+        this.patientsSubscription.unsubscribe();
     }
 }

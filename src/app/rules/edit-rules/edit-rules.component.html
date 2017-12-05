@@ -3,7 +3,7 @@
                 <header>
                     <h2><strong>Question: </strong>{{ selectedQuestion.questionName }}</h2>
                     <select class="custom-select" [(ngModel)]="selectedPatient" (change)="onSelectedPatientChange($event)">
-                        <option *ngFor="let patient of patients | hasReport: false" [ngValue]="patient">{{ patient?.PatientLastName + ', ' + patient?.PatientFirstName }}</option>
+                        <option *ngFor="let patient of patients | hasReport: false" [ngValue]="patient">{{ patient?.patientLastName + ', ' + patient?.patientFirstName }}</option>
                     </select>
                 </header>
             </div>

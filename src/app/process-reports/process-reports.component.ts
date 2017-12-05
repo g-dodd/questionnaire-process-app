@@ -70,7 +70,7 @@ export class ProcessReportsComponent implements OnInit, AfterViewInit {
     }
 
     togglePatientSelection(patient: Patient): void {
-        if (this.isInSelection(patient.ID)) {
+        if (this.isInSelection(patient.id)) {
             this.removeFromSelection(patient);
         } else {
             this.patientsSelected.push(patient);
@@ -78,13 +78,13 @@ export class ProcessReportsComponent implements OnInit, AfterViewInit {
     }
 
     removePatientFromSelection(patient: Patient): void {
-        if (this.isInSelection(patient.ID)) {
+        if (this.isInSelection(patient.id)) {
             this.removeFromSelection(patient);
         }
     }
 
     addPatientToSelection(patient: Patient): void {
-        if (!this.isInSelection(patient.ID)) {
+        if (!this.isInSelection(patient.id)) {
             this.patientsSelected.push(patient);
         }
     }
@@ -108,25 +108,25 @@ export class ProcessReportsComponent implements OnInit, AfterViewInit {
 
     isInSelection(id: number) {
         return _.some(this.patientsSelected, patient => {
-            return patient.ID === id;
+            return patient.id === id;
         });
     }
 
     isInProcessing(id: number) {
         return _.some(this.patientsToProcess, patient => {
-            return patient.ID === id;
+            return patient.id === id;
         });
     }
 
     removeFromSelection(patient: Patient) {
         this.patientsSelected = _.filter(this.patientsSelected, patientSelected => {
-            return patientSelected.ID !== patient.ID;
+            return patientSelected.id !== patient.id;
         });
     }
 
     removeFromList(patient: Patient) {
         this.patients = _.filter(this.patients, currentPatient => {
-            return patient.ID !== currentPatient.ID;
+            return patient.id !== currentPatient.id;
         });
     }
 
@@ -139,19 +139,19 @@ export class ProcessReportsComponent implements OnInit, AfterViewInit {
 
     getSelectionIndex(patient: Patient): number {
         return this.patientsSelected.findIndex(patientSelected => {
-            return patient.ID === patientSelected.ID;
+            return patient.id === patientSelected.id;
         });
     }
 
     getListIndex(patient: Patient): number {
         return this.patients.findIndex(patientListed => {
-            return patient.ID === patientListed.ID;
+            return patient.id === patientListed.id;
         });
     }
 
     getProcessingIndex(patient: Patient): number {
         return this.patientsToProcess.findIndex(patientToProcess => {
-            return patient.ID === patientToProcess.ID;
+            return patient.id === patientToProcess.id;
         });
     }
 
@@ -172,7 +172,7 @@ export class ProcessReportsComponent implements OnInit, AfterViewInit {
 
     updatePatientsStatus(patients: Patient[], status: number): Patient[] {
         return _.forEach(patients, patient => {
-            patient.Status = status;
+            patient.status = status;
         });
     }
 

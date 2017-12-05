@@ -16,24 +16,24 @@
         <tr 
             *ngFor="let patient of patients" 
             [ngClass]="{
-                'table-warning': patient.Status === 2,
-                'table-primary': patient.Status === 3,
-                'table-success': patient.Status === 4
+                'table-warning': patient.status === 2,
+                'table-primary': patient.status === 3,
+                'table-success': patient.status === 4
             }"
         >
             <td>
-                <span class="report-indicator" [ngClass]="{'no-report': patient.Status === 0, 'has-report': patient.Status > 0}">
+                <span class="report-indicator" [ngClass]="{'no-report': patient.status === 0, 'has-report': patient.status > 0}">
                     <i class="fa fa-file-text-o" aria-hidden="true"></i>
                 </span>
             </td>
-            <td>{{ patient.PatientFirstName }}</td>
-            <td>{{ patient.PatientLastName }}</td>
-            <td>{{ patient.PatientDateOfBirth | convertDate }}</td>
-            <td>{{ patient.MemberID }}</td>
-            <td>{{ patient.PhoneNumber }}</td>
-            <td>{{ patient.Status | statusToText }}</td>
+            <td>{{ patient.patientFirstName }}</td>
+            <td>{{ patient.patientLastName }}</td>
+            <td>{{ patient.patientDateOfBirth | convertDate }}</td>
+            <td>{{ patient.memberId }}</td>
+            <td>{{ patient.phoneNumber }}</td>
+            <td>{{ patient.status | statusToText }}</td>
             <td>
-                <span class="log-indicator" (click)="openReportLog(patient)" *ngIf="patient.Status > 0">
+                <span class="log-indicator" (click)="openReportLog(patient)" *ngIf="patient.status > 0">
                     Open Log <i class="fa fa-external-link" aria-hidden="true"></i>
                 </span>
             </td>

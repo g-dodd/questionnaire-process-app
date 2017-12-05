@@ -123,7 +123,11 @@ export class EditRulesComponent implements OnInit, OnDestroy {
                 this.selectedPatientReport = response['modifiedReport'];
             },
             error => {
-                this.selectedPatientReport = 'No report found for this patient.';
+                if (this.selectedPatient) {
+                    this.selectedPatientReport = 'No report shown for ' + this.selectedPatient.patientFirstName + ' ' + this.selectedPatient.patientLastName + ' due to demo purposes';
+                } else {
+                    this.selectedPatientReport = 'No report shown for demo purposes';
+                }
             }
         );
     }

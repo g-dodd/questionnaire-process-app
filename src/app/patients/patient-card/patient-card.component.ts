@@ -40,6 +40,6 @@ export class PatientCardComponent implements OnInit {
 
     openReportLog(): void {
         this.bsModalRef = this.modalService.show(ReportLogComponent, { class: 'modal-lg' });
-        this.bsModalRef.content.patientName = this.patient.PatientFirstName + ' ' + this.patient.PatientLastName;
+        this.bsModalRef.content.patientName = this.patient.patientFirstName + ' ' + this.patient.patientLastName;
     }
 }

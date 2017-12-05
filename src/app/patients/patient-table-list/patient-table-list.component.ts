@@ -11,7 +11,7 @@ import { ReportLogComponent } from '../report-log/report-log.component';
   styleUrls: ['./patient-table-list.component.scss']
 })
 export class PatientTableListComponent implements OnInit {
-    @Input() patients = [];
+    @Input() patients;
     @Input() loadingPatients;
     bsModalRef: BsModalRef;
 
@@ -22,7 +22,7 @@ export class PatientTableListComponent implements OnInit {
 
     openReportLog(patient: Patient): void {
         this.bsModalRef = this.modalService.show(ReportLogComponent, { class: 'modal-lg' });
-        this.bsModalRef.content.patientName = patient.PatientFirstName + ' ' + patient.PatientLastName;
+        this.bsModalRef.content.patientName = patient.patientFirstName + ' ' + patient.patientLastName;
     }
 
 }

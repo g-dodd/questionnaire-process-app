@@ -7,9 +7,9 @@ export class FilterStatusPipe implements PipeTransform {
     transform(values: any[], status: number): any[] {
         return _.filter(values, value => {
             if (status === 1) {
-                return value.Status <= status;
+                return value.status <= status;
             } else {
-                return value.Status === status;
+                return value.status === status;
             }
             
         });

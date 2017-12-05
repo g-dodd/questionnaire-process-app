@@ -1,10 +1,10 @@
 export class Patient {
-    ID: number;
-    PatientLastName: string;
-    PatientFirstName: string;
-    PatientDateOfBirth: string;
-    PhoneNumber: string;
-    MemberID: string;
-    Status: number;
-    QuestionnaireFile: string;
+    id: number;
+    patientLastName: string;
+    patientFirstName: string;
+    patientDateOfBirth: string;
+    phoneNumber: string;
+    memberId: string;
+    status: number;
+    questionnaireFile: string;
 }
